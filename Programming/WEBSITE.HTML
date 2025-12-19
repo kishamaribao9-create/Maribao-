@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kisha's Enchanted Dreamscape</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif; /* Unique, playful font */
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe6f7, #f0e6ff, #e6f7ff);
+            color: #4a4a4a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating sparkles for uniqueness */
+        body::before {
+            content: "✨";
+            position: fixed;
+            top: 10%;
+            left: 10%;
+            font-size: 2rem;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        body::after {
+            content: "🌸";
+            position: fixed;
+            bottom: 10%;
+            right: 10%;
+            font-size: 2rem;
+            animation: float 5s ease-in-out infinite reverse;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn {
+            color: #fff;
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Navigation Bar - Unique addition */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: slideDown 1s ease-out;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffb6c1;
+        }
+
+        /* Hero Section - Enhanced uniqueness */
+        .hero {
+            background: linear-gradient(135deg, #ffffff, #ffe6f7, #f0e6ff);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 50px 50px;
+            min-height: 100vh;
+            position: relative;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffb6c1" opacity="0.3"/></svg>') repeat;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .hero-text h1 {
+            font-size: 100px;
+            line-height: 90px;
+            color: #ff69b4;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .top-label {
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+        }
+
+        .hero-img {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 8px solid #ffb6c1;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+            animation: zoomIn 2s ease-out 0.5s both;
+            transition: transform 0.3s;
+        }
+
+        .hero-img:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* About Section - Unique layout */
+        .about {
+            background: linear-gradient(135deg, #ffffff, #ffe6f7);
+            padding: 80px 60px;
+            animation: fadeInUp 1s ease-out 1s both;
+            position: relative;
+        }
+
+        .about::after {
+            content: "💖";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .about h2 {
+            font-size: 60px;
+            margin-bottom: 40px;
+            color: #ff69b4;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .description {
+            flex: 1;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .art-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #ffb6c1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .small-note {
+            font-size: 1.1rem;
+            color: #888;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Gallery - Unique grid with hover effects */
+        .gallery {
+            background: linear-gradient(135deg, #ffffff, #f0e6ff);
+            padding: 80px 60px;
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        .gallery h2 {
+            font-size: 50px;
+            margin-bottom: 40px;
+            color: #ff69b4;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            max-width: 250px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 4px solid #ffe6f7;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            animation: fadeInScale 0.8s ease-out both;
+        }
+
+        .photo-grid img:nth-child(1) { animation-delay: 2s; }
+        .photo-grid img:nth-child(2) { animation-delay: 3.2s; }
+        .photo-grid img:nth-child(3) { animation-delay: 3.4s; }
+        .photo-grid img:nth-child(4) { animation-delay: 3.6s; }
+        .photo-grid img:nth-child(5) { animation-delay: 3.8s; }
+        .photo-grid img:nth-child(6) { animation-delay: 4s; }
+
+        .photo-grid img:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .small-note1 {
+            font-size: 22px;
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Hobbies Section - Unique card layout */
+        .big-banner {
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #ffffff, #e6f7ff);
+            animation: fadeInUp 1s ease-out 2s both;
+        }
+
+        .big-banner h2 {
+            font-size: 50px;
+            margin-bottom: 40px;
+            color: #ff69b4;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .hobby-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hobby-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 3px solid #ffb6c1;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: slideInLeft 0.8s ease-out both;
+        }
+
+        .hobby-card:nth-child(1) { animation-delay: 2.5s; }
+        .hobby-card:nth-child(2) { animation-delay: 2.7s; }
+
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
+        }
+
+        .hobby-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #ffe6f7;
+        }
+
+        .hobby-card h3 {
+            color: #ff69b4;
+            margin-bottom: 15px;
+        }
+
+        .hobby-card p {
+            font-size: 1.1rem;
+        }
+
+        /* New Unique Section: Dreams and Quotes */
+        .dreams {
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #f0e6ff, #ffe6f7);
+            animation: fadeInUp 1s ease-out 2.5s both;
+        }
+
+        .dreams h2 {
+            font-size: 50px;
+            margin-bottom: 40px;
+            color: #ff69b4;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .quote {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.5rem;
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Footer - Enhanced */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            box-shadow: 0 -4px 10px rgba(255, 105, 180, 0.3);
+            animation: fadeInUp 1s ease-out 3.5s both;
+            position: relative;
+        }
+
+        footer::before {
+            content: "💖✨🌸";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+        }
+
+        /* Keyframes */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-100%); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Photos</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#dreams">Dreams</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-text">
+            <p class="top-label">WELCOME TO KISHA'S ENCHANTED DREAMSCAPE</p>
+            <h1>Kisha<br>Maribao</h1>
+            <a href="#about" class="btn">Discover Me</a>
+            <a href="#gallery" class="btn">View Photos</a>
+            <a href="#hobbies" class="btn">Explore Hobbies</a>
+        </div>
+        <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/9.jpeg" class="hero-img" alt="Kisha">
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="description">
+                <p>Hi! I'm <strong>Kisha</strong>, a dreamer with a passion for creativity and joy. My world is filled with colors, laughter, and endless possibilities. Welcome to my enchanted space where every moment sparkles! 🌟</p>
+                <p class="small-note">Life is a canvas, and I'm painting it pink! ✨</p>
+            </div>
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/7.jpeg" class="art-img" alt="Kisha Art">
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+        <h2>My Magical Photos</h2>
+        <div class="photo-grid">
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/3.jpeg" alt="Photo 1">
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/1.jpeg" alt="Photo 2">
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/2.jpeg" alt="Photo 3">
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/6.jpeg" alt="Photo 4">
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/8.jpeg" alt="Photo 5">
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/0.jpeg" alt="Photo 6">
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/01.jpeg" alt="Photo 5">
+            <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/02.jpeg" alt="Photo 6">
+
+        </div>
+        <p class="small-note1">Captured moments of pure magic and joy! 💖</p>
+    </section>
+
+    <!-- Hobbies -->
+    <section class="big-banner" id="hobbies">
+        <h2>My Passionate Hobbies</h2>
+        <div class="hobby-cards">
+            <div class="hobby-card">
+                <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/12.jpeg" alt="Volleyball">
+                <h3>🏐 Volleyball Vibes</h3>
+                <p>Spiking energy and teamwork on the court – it's all about that girl power and fun!</p>
+            </div>
+            <div class="hobby-card">
+                <img src="/Users/kishamaribao9gmail.com/Documents/Programming/IMAGES/13.jpeg" alt="Mobile Legends">
+                <h3>🎮 Mobile Legends Magic</h3>
+                <p>Leveling up with friends in epic battles – gaming bliss in every match!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dreams and Quotes -->
+    <section class="dreams" id="dreams">
+        <h2>Dreams & Inspirations</h2>
+        <div class="quote">
+            "Dream big, sparkle more, laugh often." – Kisha's Motto
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+       
